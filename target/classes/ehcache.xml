@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../config/ehcache.xsd">
+    <diskStore path="C:\ehcache"/>
+    <defaultCache
+            maxElementsInMemory="10000"
+            eternal="false"
+            timeToIdleSeconds="120"
+            timeToLiveSeconds="120"
+            maxElementsOnDisk="10000000"
+            diskExpiryThreadIntervalSeconds="120"
+            memoryStoreEvictionPolicy="LRU">
+        <persistence strategy="localTempSwap"/>
+    </defaultCache>
+    
+    <!-- 
+        maxElementsInMemory 缓存在内存中的最大数量
+        eternal 设置成true,代表对象永久有效 设置成false时,与timeToIdleSeconds和timeToLiveSeconds同时使用 多长时间未访问和存活多长时间便进行清除缓存
+        timeToIdleSeconds 多长时间未访问清除缓存
+        timeToLiveSeconds 存活多长时间清除缓存
+        overflowToDisk 设置成true,当内存中元素数量超出时 就存到硬盘上去
+        maxElementsOnDisk 设置成0 表示硬盘中最大缓存对象数无限大
+        diskPersistent 设置成true表示缓存虚拟机重启期数据 
+     -->
+     <cache 
+	      name="a"
+	      maxElementsInMemory="99"  
+	      eternal="false"
+          timeToIdleSeconds="50"
+          timeToLiveSeconds="50"	
+	      overflowToDisk="true" 
+	      maxElementsOnDisk="0"
+	      />
+</ehcache>
